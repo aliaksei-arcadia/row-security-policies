@@ -1,0 +1,13 @@
+version: "3"
+services:
+  rls-db:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=db_owner
+      - POSTGRES_PASSWORD=123
+      - POSTGRES_DB=rls
+    ports:
+      - "5439:5432"
+    volumes:
+      - ./initdb:/docker-entrypoint-initdb.d
+    restart: always
