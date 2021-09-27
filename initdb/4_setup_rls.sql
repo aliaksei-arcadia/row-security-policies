@@ -9,7 +9,6 @@ CREATE POLICY isolate_by_username on rls.public.sources2
 CREATE POLICY isolate_by_app_variable ON rls.public.sources3
     USING (customer_id = current_setting('app.customer_id')::int);
 -- drop policy isolate_by_app_variable on rls.public.sources;
-set app.customer_id = 3;
 
 ALTER ROLE user_admin bypassrls;
 ALTER ROLE db_owner nobypassrls;
